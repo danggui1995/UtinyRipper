@@ -390,7 +390,7 @@ namespace uTinyRipperGUI
 #endif
 					if (result == System.Windows.Forms.DialogResult.OK)
 					{
-						string path = Path.Combine(folderDialog.SelectedPath, GameStructure.Name);
+						string path = Path.Combine(folderDialog.SelectedPath, Path.GetFileNameWithoutExtension(GameStructure.Name));
 						if (File.Exists(path))
 						{
 							MessageBox.Show(this, "Unable to export assets into selected folder. Choose another one.",
