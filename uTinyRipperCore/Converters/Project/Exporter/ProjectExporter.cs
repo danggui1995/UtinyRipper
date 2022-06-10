@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using uTinyRipper.Classes;
 using uTinyRipper.Layout;
 using uTinyRipper.Project;
@@ -177,6 +178,9 @@ namespace uTinyRipper.Converters
 
 		public void Export(string path, GameCollection fileCollection, SerializedFile file, ExportOptions options)
 		{
+			string dir = Path.GetDirectoryName(path);
+			string filename = Path.GetFileNameWithoutExtension(path);
+			path = Path.Combine(dir, filename);
 			Export(path, fileCollection, new SerializedFile[] { file }, options);
 		}
 
