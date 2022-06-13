@@ -298,6 +298,11 @@ namespace uTinyRipper.Converters
 		private void AddBundleAssets(AssetBundle bundle)
 		{
 			string bundleName = AssetBundle.HasAssetBundleName(bundle.File.Version) ? bundle.AssetBundleName : bundle.File.Name;
+			int bundleIndex = bundleName.LastIndexOf('.');
+			if (bundleIndex != -1)
+			{
+				bundleName = bundleName.Substring(0, bundleIndex);
+			}
 			string bundleDirectory = bundleName + ObjectUtils.DirectorySeparator;
 			string directory = Path.Combine(AssetBundleFullPath, bundleName);
 			foreach (KeyValuePair<string, Classes.AssetBundles.AssetInfo> kvp in bundle.Container)
